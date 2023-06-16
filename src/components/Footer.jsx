@@ -22,7 +22,7 @@ function Footer() {
           <div className="col-md mt-3 mt-md-0">
             <h5>Social Media</h5>
             <p>
-              Connect with us on social media platforms to stay updated on the latest weather news, forecasts, and special announcements. Follow us on <a href="https://github.com/Fearless09/climatesnap/tree/master" target='_blank' title='Follow US on GitHub' className='text-light'>GitHub
+              Connect with us on social media platforms to stay updated on the latest weather news, forecasts, and special announcements. Follow us on <a href="https://github.com/Fearless09/climatesnap" target='_blank' title='Follow US on GitHub' className='text-light'>GitHub
               </a>, <a href="#" target='_blank' title='Follow US on Twitter' className='text-light'>Twitter
               </a>, and<a href="#" target='_blank' title='Follow US on LinkedIn' className='text-light ms-2'>LinkedIn</a>.
             </p>
