@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
-    <footer className='bg-dark text-white mt-5'>
-      <div className="container py-5">
+    <footer className='bg-dark text-white mt-4'>
+      <div className="container py-4">
         <div className="row">
           {/* About US */}
           <div className="col-md">

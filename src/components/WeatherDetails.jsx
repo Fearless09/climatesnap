@@ -2,26 +2,26 @@ import React from 'react'
 
 function WeatherDetails({ city, data }) {
     return (
-        <div className='container rounded mt-5 bg-dark text-white pb-5'>
-            <div className="px-4 py-2">
+        <div className='container mt-4 bg-dark text-white pb-5'>
+            <div className="px-3 px-sm-4 py-2">
                 <h5 className="mb-0 hstack">
                     <span className='fw-normal me-2'>Weather Today in</span>
                     <span>{city}</span>
                 </h5>
             </div>
 
-            <div className='mt-4 px-4'>
+            <div className='mt-3 px-3 px-sm-4'>
                 <div className="hstack justify-content-between">
                     <div>
                         <h1 className='mb-0' style={{ fontSize: '56px' }}>{Math.round(data.main.feels_like)}°C</h1>
                         <p className='text-capitalize'>feels like</p>
                     </div>
                     <div>
-                        <img src={`../public/icons/${data.weather[0].icon}.png`} className='img img-fluid' alt="" />
+                        <img src={`../icons/${data.weather[0].icon}.png`} className='img img-fluid' alt="" />
                     </div>
                 </div>
 
-                <h5 className='mt-4'>Details</h5>
+                <h5 className='mt-3'>Details</h5>
                 <hr className='mt-0' />
                 <div className="row gy-2">
                     <div className="col-6">

@@ -2,7 +2,7 @@ import React from 'react'
 
 function About() {
     return (
-        <div className='container mt-5'>
+        <div className='container mt-4'>
             <h3>About ClimateSnap</h3>
 
             <p className="lead mt-3">

@@ -1,7 +1,6 @@
 import CurrentWeather from "../components/CurrentWeather"
 import WeatherDetails from "../components/WeatherDetails"
 import Forecast from "../components/Forecast"
-import { Link } from "react-router-dom"
 
 function Homepage({ city, forecast, data }) {
 

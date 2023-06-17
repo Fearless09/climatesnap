@@ -2,7 +2,7 @@ import React from 'react'
 
 function FAQ() {
     return (
-        <div className='container mt-5'>
+        <div className='container mt-4'>
             <h3>Frequently Asked Questions</h3>
 
             <div className="accordion accordion-flush" id="accordionFlushExample">

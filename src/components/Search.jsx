@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { AsyncPaginate } from 'react-select-async-paginate'
 import { geoApiOptions, geoApiUrl } from '../api'
 
-function Search({ setLoading, onSearchChange }) {
+function Search({ defaultFunction, setLoading, onSearchChange }) {
     // onSearchChange
     const [search, setSearch] = useState(null)
 
@@ -14,6 +14,7 @@ function Search({ setLoading, onSearchChange }) {
         // console.log(searchData)
         onSearchChange(searchData)
         navigate(`/city/${searchData.label}?${searchData.value}`) 
+        defaultFunction()
     }
 
     const loadOptions = (inputValue) => {
