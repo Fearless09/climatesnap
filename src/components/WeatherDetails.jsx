@@ -17,7 +17,7 @@ function WeatherDetails({ city, data }) {
                         <p className='text-capitalize'>feels like</p>
                     </div>
                     <div>
-                        <img src={`../icons/${data.weather[0].icon}.png`} className='img img-fluid' alt="" />
+                        <img src={`./icons/${data.weather[0].icon}.png`} className='img img-fluid' alt="" />
                     </div>
                 </div>
 
