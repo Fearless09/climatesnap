@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { weatherApiKey, WeatherApiUrl, openCageApiKey, openCageUrl } from './api'
-import './App.css'
 import Navbar from './components/Navbar'
 import City from './pages/City';
 import Homepage from './pages/Homepage';
@@ -10,12 +9,22 @@ import Loading from './components/Loading';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import FAQ from './pages/FAQ';
+import Alert from './components/Alert';
 
 function App() {
   const [weather, setWeather] = useState(null)
   const [forecast, setForecast] = useState(null)
   const [city, setCity] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [errorMessage, setErrorMessage] = useState(null)
+  const [errorOUt, setErrorOut] = useState(true)
+
+  const abujaData = () => {
+    setCity('Abuja NG')
+    const latitude = 9.072264
+    const longitude = 7.491302
+    fetchFunc(latitude, longitude)
+  }
 
   async function getUserLocation() {
     if (navigator.geolocation) {
@@ -31,20 +40,20 @@ function App() {
         const data = await response.json();
         const city = data.results[0].components.city;
         const country_code = data.results[0].components.country_code.toUpperCase()
+
         setCity(`${city} ${country_code}`)
         fetchFunc(latitude, longitude)
 
-        // console.log(data.results[0])
-
-
-        // console.log("City:", city);
-        // console.log("Latitude:", latitude);
-        // console.log("Longitude:", longitude);
       } catch (error) {
-        console.log("Error:", error);
+        // console.log("Error:", error);
+        setErrorMessage(error.message)
+        abujaData()
       }
+
     } else {
       console.log("Geolocation is not supported by this browser.");
+      // setErrorMessage('Geolocation is not supported by this browser.')
+      abujaData()
     }
   }
 
@@ -90,12 +99,20 @@ function App() {
 
       <ScrollToTop />
 
+      {errorMessage && errorOUt && (
+        <>
+          <Alert message={errorMessage} />
+          <div className="opacity-0 position-absolute">
+            {setTimeout(() => setErrorOut(false), 3500)}
+          </div>
+        </>
+      )}
       {loading && <Loading />}
 
       <Routes>
 
         <Route index element={<Homepage city={city} forecast={forecast} data={weather} />} />
-        
+
         <Route path='/city/:city' element={<City city={city} forecast={forecast} data={weather} />} />
 
         <Route path='/about' element={<About />} />
@@ -103,7 +120,7 @@ function App() {
         <Route path='/faq' element={<FAQ />} />
 
       </Routes>
-      
+
       <Footer />
     </Router>
   )
