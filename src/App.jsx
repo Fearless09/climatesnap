@@ -40,7 +40,10 @@ function App() {
 
         const response = await fetch(`${openCageUrl}/json?q=${latitude}+${longitude}&key=${openCageApiKey}`);
         const data = await response.json();
-        const city = data.results[0].components.city;
+        let city = data.results[0].components.city;
+        if (city === undefined) {
+          city = 'Unknow City'
+        }
         const country_code = data.results[0].components.country_code.toUpperCase()
 
         // console.log(data.results[0].components)

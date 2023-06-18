@@ -62,6 +62,15 @@ function Navbar({ setLoading, getUserLocation, onSearchChange }) {
                   <Search defaultFunction={defaultFunction} setLoading={setLoading} onSearchChange={onSearchChange} />
                 </div>
               </li>
+              <li className="nav-item home">
+                <Link
+                  to={"/"}
+                  onClick={defaultFunction}
+                  className="nav-link"
+                >
+                  Home
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link
                   to={"/about"}
