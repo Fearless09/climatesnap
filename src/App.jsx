@@ -19,6 +19,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState(null)
   const [errorOUt, setErrorOut] = useState(true)
 
+  // Abuja Weather Fetch
   const abujaData = () => {
     setCity('Abuja NG')
     const latitude = 9.072264
@@ -26,6 +27,7 @@ function App() {
     fetchFunc(latitude, longitude)
   }
 
+  // User Location Fetch
   async function getUserLocation() {
     if (navigator.geolocation) {
       try {
@@ -41,6 +43,7 @@ function App() {
         const city = data.results[0].components.city;
         const country_code = data.results[0].components.country_code.toUpperCase()
 
+        // console.log(data.results[0].components)
         setCity(`${city} ${country_code}`)
         fetchFunc(latitude, longitude)
 
@@ -57,11 +60,12 @@ function App() {
     }
   }
 
+  // User Location Fetch on Load 
   useEffect(() => {
     getUserLocation();
   }, [])
 
-
+  // Fetch Weather
   const fetchFunc = (lat, lon) => {
     const fetchWeather = fetch(`${WeatherApiUrl}/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`)
     const fetchForecast = fetch(`${WeatherApiUrl}/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`)
@@ -80,6 +84,7 @@ function App() {
       .catch((error) => console.log(error))
   }
 
+  // Fetch City on Location Change
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(' ')
     setCity(searchData.label)
