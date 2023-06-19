@@ -41,12 +41,20 @@ function App() {
         const response = await fetch(`${openCageUrl}/json?q=${latitude}+${longitude}&key=${openCageApiKey}`);
         const data = await response.json();
         let city = data.results[0].components.city;
+
+        const county = data.results[0].components.county
         if (city === undefined) {
-          city = 'Unknow City'
+          if (county) {
+            const countyArr = county.split(' ')
+            city = countyArr[0]
+            // console.log(city)
+          } else {
+            city = 'Unrecognized City'
+          }
         }
         const country_code = data.results[0].components.country_code.toUpperCase()
 
-        // console.log(data.results[0].components)
+        // console.log(data.results[0].components.county)
         setCity(`${city} ${country_code}`)
         fetchFunc(latitude, longitude)
 
@@ -58,7 +66,7 @@ function App() {
 
     } else {
       console.log("Geolocation is not supported by this browser.");
-      // setErrorMessage('Geolocation is not supported by this browser.')
+      setErrorMessage('Geolocation is not supported by this browser.')
       abujaData()
     }
   }
@@ -84,7 +92,11 @@ function App() {
         // setWeather({ city: searchData.label, ...weatherResponse })
         // setForecast({ city: searchData.label, ...forecastResponse })
       })
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        // console.log(error)
+        setErrorMessage(error)
+        setLoading(false)
+      })
   }
 
   // Fetch City on Location Change

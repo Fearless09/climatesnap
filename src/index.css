@@ -115,3 +115,21 @@
         flex-grow: initial;
     }
 }
+
+.timeout{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    opacity: 100% !important;
+    animation: linear 3500ms timeoutAnimation;
+}
+
+@keyframes timeoutAnimation {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}

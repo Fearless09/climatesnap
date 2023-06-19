@@ -2,7 +2,7 @@ import React from 'react'
 
 function Alert({ message }) {
     return (
-        <div className="container">
+        <div className="container px-sm-0">
             <div className='mt-3 alert alert-primary alert-dismissible fade show' role="alert">
                 <div className="hstack">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className=" me-2 bi bi-info-circle-fill" viewBox="0 0 16 16">
@@ -12,6 +12,10 @@ function Alert({ message }) {
                 </div>
 
                 <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                <div className="position-relative">
+                    <hr className='m-0 timeout' />
+                </div>
             </div>
         </div>
     )
