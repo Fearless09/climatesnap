@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   weatherApiKey,
   WeatherApiUrl,
@@ -98,15 +98,14 @@ function App() {
 
         setWeather(weatherResponse);
         setForecast(forecastResponse);
-        setLoading(false);
         // setWeather({ city: searchData.label, ...weatherResponse })
         // setForecast({ city: searchData.label, ...forecastResponse })
       })
       .catch((error) => {
         // console.log(error)
         setErrorMessage(error);
-        setLoading(false);
-      });
+      })
+      .finally(() => setLoading(false));
   };
 
   // Fetch City on Location Change
