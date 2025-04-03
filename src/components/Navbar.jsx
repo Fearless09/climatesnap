@@ -3,33 +3,38 @@ import Search from "./Search";
 import { useState } from "react";
 
 function Navbar({ setLoading, getUserLocation, onSearchChange }) {
-  const [dMenu, setDMenu] = useState(false)
-  const [open, setOpen] = useState(true)
-  const [close, setClose] = useState(false)
+  const [dMenu, setDMenu] = useState(false);
+  const [open, setOpen] = useState(true);
+  const [close, setClose] = useState(false);
 
   function menuToggle() {
-    setDMenu(!dMenu)
-    setOpen(!open)
-    setClose(!close)
+    setDMenu(!dMenu);
+    setOpen(!open);
+    setClose(!close);
   }
 
   function defaultFunction() {
-    setDMenu(false)
-    setOpen(true)
-    setClose(false)
+    setDMenu(false);
+    setOpen(true);
+    setClose(false);
   }
 
   function onBrandClick() {
     setLoading(true);
     getUserLocation();
-    defaultFunction()
+    defaultFunction();
   }
 
   return (
     <nav className="navbar navbar-expand bg-dark position-fixed w-100 top-0 start-0">
       <div className="container-fluid px-3 px-sm-5">
         {/* Brand Name */}
-        <Link to={"/"} onClick={onBrandClick} className="navbar-brand me-0" href="#">
+        <Link
+          to={"/"}
+          onClick={onBrandClick}
+          className="navbar-brand me-0"
+          href="#"
+        >
           <span>ClimateSnap</span>
         </Link>
 
@@ -37,37 +42,61 @@ function Navbar({ setLoading, getUserLocation, onSearchChange }) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           {/* Search */}
           <div className="mx-auto main-search">
-            <Search defaultFunction={defaultFunction} setLoading={setLoading} onSearchChange={onSearchChange} />
+            <Search
+              defaultFunction={defaultFunction}
+              setLoading={setLoading}
+              onSearchChange={onSearchChange}
+            />
           </div>
 
           {/* Menu BTN */}
-          <button className="btn btn-outline-light d-block d-md-none" onClick={menuToggle}>
-            <span className={open ? 'd-block' : 'd-none'}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+          <button
+            className="btn btn-outline-light d-block d-md-none"
+            onClick={menuToggle}
+          >
+            <span className={open ? "d-block" : "d-none"}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                className="bi bi-list"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                />
               </svg>
             </span>
-            <span className={close ? 'd-block' : 'd-none'}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
+            <span className={close ? "d-block" : "d-none"}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                className="bi bi-x-lg"
+                viewBox="0 0 16 16"
+              >
                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
               </svg>
             </span>
           </button>
 
           {/* Links */}
-          <div className={`${dMenu ? 'd-block' : 'd-none'} d-md-block menu`}>
+          <div className={`${dMenu ? "d-block" : "d-none"} d-md-block menu`}>
             <ul className={`navbar-nav mb-0`}>
               <li className="nav-item">
                 <div className="mini-search">
-                  <Search defaultFunction={defaultFunction} setLoading={setLoading} onSearchChange={onSearchChange} />
+                  <Search
+                    defaultFunction={defaultFunction}
+                    setLoading={setLoading}
+                    onSearchChange={onSearchChange}
+                  />
                 </div>
               </li>
               <li className="nav-item home">
-                <Link
-                  to={"/"}
-                  onClick={defaultFunction}
-                  className="nav-link"
-                >
+                <Link to={"/"} onClick={defaultFunction} className="nav-link">
                   Home
                 </Link>
               </li>
@@ -81,7 +110,11 @@ function Navbar({ setLoading, getUserLocation, onSearchChange }) {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to={"/faq"} className="nav-link" onClick={defaultFunction}>
+                <Link
+                  to={"/faq"}
+                  className="nav-link"
+                  onClick={defaultFunction}
+                >
                   FAQ
                 </Link>
               </li>
@@ -116,7 +149,11 @@ function Navbar({ setLoading, getUserLocation, onSearchChange }) {
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item hstack" onClick={defaultFunction} href="#">
+                    <a
+                      className="dropdown-item hstack"
+                      onClick={defaultFunction}
+                      href="#"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -131,7 +168,11 @@ function Navbar({ setLoading, getUserLocation, onSearchChange }) {
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item hstack" onClick={defaultFunction} href="#">
+                    <a
+                      className="dropdown-item hstack"
+                      onClick={defaultFunction}
+                      href="#"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
