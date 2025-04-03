@@ -1,0 +1,44 @@
+{
+  "hash": "d293aefe",
+  "browserHash": "b92f3719",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "e4f908f7",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "6c69a8db",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "f31b2afb",
+      "needsInterop": false
+    },
+    "react-accessible-accordion": {
+      "src": "../../node_modules/react-accessible-accordion/dist/es/index.js",
+      "file": "react-accessible-accordion.js",
+      "fileHash": "49573d90",
+      "needsInterop": false
+    },
+    "react-select-async-paginate": {
+      "src": "../../node_modules/react-select-async-paginate/dist/esm/index.js",
+      "file": "react-select-async-paginate.js",
+      "fileHash": "9df0f613",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-SRAQOA3L": {
+      "file": "chunk-SRAQOA3L.js"
+    },
+    "chunk-QSQYAWSL": {
+      "file": "chunk-QSQYAWSL.js"
+    }
+  }
+}

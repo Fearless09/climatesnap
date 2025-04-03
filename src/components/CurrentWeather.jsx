@@ -14,7 +14,7 @@ function CurrentWeather({ city, data }) {
     <div
       className="container overflow-hidden text-white mt-3 p-0 pb-3"
       style={{
-        background: `linear-gradient(rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00)), url('/cloud.jpg')`,
+        background: `linear-gradient(rgba(0, 0, 0, 0.01),rgba(0, 0, 0, 0.05)), url('/cloud.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center center",
         borderRadius: "8px",
