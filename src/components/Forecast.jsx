@@ -78,7 +78,7 @@ function Forecast({ city, forecast }) {
                   </div>
                   <div>
                     <img
-                      src={`./icons/${item.weather[0].icon}.png`}
+                      src={`/icons/${item.weather[0].icon}.png`}
                       className="img img-fluid"
                       alt=""
                     />

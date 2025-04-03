@@ -23,7 +23,7 @@ function WeatherDetails({ city, data }) {
           </div>
           <div>
             <img
-              src={`./icons/${data.weather[0].icon}.png`}
+              src={`/icons/${data.weather[0].icon}.png`}
               className="img img-fluid"
               alt=""
             />
