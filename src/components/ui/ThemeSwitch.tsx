@@ -65,11 +65,11 @@ const ThemeSwitch = () => {
       {/* Light glow particle effects inside the button */}
       <span className="transition-300 pointer-events-none absolute inset-0 bg-linear-to-tr from-blue-500/10 to-amber-500/10 opacity-0 group-hover:opacity-100 dark:from-indigo-500/10 dark:to-purple-500/10" />
 
-      <div className="theme-icon flex items-center justify-center">
+      <div className="theme-icon flex items-center justify-center [&>svg]:size-5">
         {isDark ? (
-          <Moon className="h-5 w-5 fill-indigo-400/20 text-indigo-400 drop-shadow-[0_0_8px_rgba(129,140,248,0.4)]" />
+          <Moon className="fill-indigo-400/20 text-indigo-400 drop-shadow-[0_0_8px_rgba(129,140,248,0.4)]" />
         ) : (
-          <Sun className="h-5 w-5 fill-amber-500/20 text-amber-500 drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]" />
+          <Sun className="fill-amber-500/20 text-amber-500 drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]" />
         )}
       </div>
     </button>

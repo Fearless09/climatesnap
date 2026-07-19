@@ -12,8 +12,7 @@ export const WeatherVisuals: React.FC<WeatherVisualsProps> = ({
   const [drops, setDrops] = useState<number[]>([]);
 
   useEffect(() => {
-    // Generate rain particles
-    if (
+     if (
       condition === "Rain" ||
       condition === "Drizzle" ||
       condition === "Thunderstorm"
@@ -28,8 +27,7 @@ export const WeatherVisuals: React.FC<WeatherVisualsProps> = ({
     }
   }, [condition]);
 
-  // Determine styles and ambient effects based on weather conditions
-  switch (condition) {
+   switch (condition) {
     case "Rain":
     case "Drizzle":
       return (

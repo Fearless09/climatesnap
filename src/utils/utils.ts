@@ -11,13 +11,6 @@ export const getIconUrl = (code: string) => {
   return `https://openweathermap.org/img/wn/${code}@4x.png`;
 };
 
-// export const formatDate = (timestamp: number, timezoneOffset: number = 0) => {
-//   const localDate = new Date((timestamp + timezoneOffset) * 1000);
-//   const formatted = localDate.toISOString().replace("T", " ").slice(0, 19);
-
-//   return formatted;
-// };
-
 export const getDate = (timestamp: number, timezoneOffset: number = 0) => {
   return new Date((timestamp + timezoneOffset) * 1000);
 };
