@@ -1,7 +1,7 @@
 {
   "name": "climatesnap",
   "description": "ClimateSnap is a modern, high-fidelity weather dashboard offering real-time local updates, 5-day forecasts, global city search, and a personalized favorites watchlist.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

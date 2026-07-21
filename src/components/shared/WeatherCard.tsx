@@ -185,7 +185,7 @@ export const WeatherCard: React.FC = () => {
           <div>
             <div className="flex items-center gap-3">
               <h2 className="truncate text-3xl font-black tracking-tight text-zinc-900 dark:text-white">
-                {locationData.formatted.split(",").slice(0, 2).join(", ")}
+                {locationData.formatted.split(",")[0]}
               </h2>
               <span className="shrink-0 rounded-md bg-blue-500/15 px-2 py-0.5 text-sm font-extrabold text-blue-500 uppercase backdrop-blur-sm">
                 {locationData.components.country_code}
