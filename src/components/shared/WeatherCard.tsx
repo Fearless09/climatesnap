@@ -184,10 +184,10 @@ export const WeatherCard: React.FC = () => {
         <main className="flex items-center justify-between">
           <div>
             <div className="flex items-center gap-3">
-              <h2 className="text-3xl font-black tracking-tight text-zinc-900 dark:text-white">
-                {locationData.formatted.split(",")[0]}
+              <h2 className="truncate text-3xl font-black tracking-tight text-zinc-900 dark:text-white">
+                {locationData.formatted.split(",").slice(0, 2).join(", ")}
               </h2>
-              <span className="rounded-md bg-blue-500/15 px-2 py-0.5 text-sm font-extrabold text-blue-500 uppercase backdrop-blur-sm">
+              <span className="shrink-0 rounded-md bg-blue-500/15 px-2 py-0.5 text-sm font-extrabold text-blue-500 uppercase backdrop-blur-sm">
                 {locationData.components.country_code}
               </span>
             </div>
@@ -206,7 +206,7 @@ export const WeatherCard: React.FC = () => {
             <button
               onClick={handleFavoriteToggle}
               className={cn(
-                `transition-300 cursor-pointer rounded-2xl border border-zinc-200 bg-white p-3 text-zinc-400 backdrop-blur-xl`,
+                `transition-300 shrink-0 cursor-pointer rounded-2xl border border-zinc-200 bg-white p-3 text-zinc-400 backdrop-blur-xl`,
                 {
                   "scale-105 border-red-500 bg-red-500 text-white shadow-lg shadow-red-500/20":
                     isFav,

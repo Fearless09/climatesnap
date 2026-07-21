@@ -1,7 +1,7 @@
 "use client";
 
 import { HelpCircle } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { FavoritesList } from "../shared/FavoritesList";
 import { ForecastTimeline } from "../shared/ForecastTimeline";
 import { WeatherCard } from "../shared/WeatherCard";
@@ -12,10 +12,13 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { getCurrentPosition } from "@/utils/utils";
 import { fetcher, getData, STORAGE_KEY } from "@/utils/fetcter";
 import { defaultCoordinate } from "@/data/default-coordinate";
+import { useToggle } from "@/hooks/useToggle";
+import LocationBtn from "../ui/LocationBtn";
 
 const HomePage = () => {
   const { weatherData, loading } = useWeather();
   const dashboardRef = useRef<HTMLDivElement>(null);
+  const [mount, toggleMount] = useToggle(false);
 
   useGSAP(
     () => {
@@ -32,6 +35,9 @@ const HomePage = () => {
     { scope: dashboardRef },
   );
 
+  useEffect(() => toggleMount(true), []);
+  if (!mount) return;
+
   return (
     <main
       ref={dashboardRef}
@@ -40,13 +46,14 @@ const HomePage = () => {
       {loading.weather ? (
         <LoadingJsx />
       ) : weatherData ? (
-        <section className="grid grid-cols-1 items-start gap-8 lg:grid-cols-3">
+        <section className="relative grid grid-cols-1 items-start gap-8 lg:grid-cols-3">
           <main className="flex w-full flex-col gap-6 lg:col-span-2">
+            <LocationBtn />
             <WeatherCard />
             <ForecastTimeline />
           </main>
 
-          <main className="flex w-full flex-col gap-6">
+          <main className="sticky top-31 flex w-full flex-col gap-6">
             <FavoritesList />
             <WidgetJsx />
           </main>

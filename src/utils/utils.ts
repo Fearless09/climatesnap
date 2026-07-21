@@ -15,6 +15,21 @@ export const getDate = (timestamp: number, timezoneOffset: number = 0) => {
   return new Date((timestamp + timezoneOffset) * 1000);
 };
 
+export async function checkGeolocationPermission() {
+  if (!navigator.permissions?.query) {
+    return "unsupported";
+  }
+
+  try {
+    const result = await navigator.permissions.query({
+      name: "geolocation",
+    });
+    return result.state;
+  } catch {
+    return "unsupported";
+  }
+}
+
 interface GeolocationResult extends LatLng {
   accuracy: number | null;
   error: string | null;

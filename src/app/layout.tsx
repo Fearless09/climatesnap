@@ -17,8 +17,53 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ClimateSnap",
-  description: "",
+  title: {
+    default: "ClimateSnap - Real-Time Weather & Climate Insights",
+    template: "%s | ClimateSnap",
+  },
+  description:
+    "ClimateSnap is a modern, high-fidelity weather dashboard offering real-time local updates, 5-day forecasts, global city search, and a personalized favorites watchlist.",
+  keywords: [
+    "ClimateSnap",
+    "weather forecast",
+    "real-time weather",
+    "local weather",
+    "meteorology",
+    "climate snap",
+    "weather dashboard",
+    "weather tracker",
+    "global weather",
+  ],
+  authors: [{ name: "ClimateSnap Team" }],
+  creator: "ClimateSnap",
+  publisher: "ClimateSnap",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://climatesnap.dev",
+    title: "ClimateSnap - Real-Time Weather & Climate Insights",
+    description:
+      "Get immediate, high-fidelity local weather updates, 5-day forecasts, and manage your favorite cities in real-time.",
+    siteName: "ClimateSnap",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ClimateSnap - Real-Time Weather & Climate Insights",
+    description:
+      "Get immediate, high-fidelity local weather updates, 5-day forecasts, and manage your favorite cities in real-time.",
+    creator: "@climatesnap",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
