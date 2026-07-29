@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 import { gsap } from "@/utils/gsap";
@@ -9,8 +9,9 @@ import { cn } from "@/utils/utils";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const isDark = useMemo(() => resolvedTheme === "dark", [resolvedTheme]);
 
   useEffect(() => {
     setMounted(true);
@@ -40,7 +41,7 @@ const ThemeSwitch = () => {
         },
       );
     },
-    { dependencies: [theme, mounted], scope: buttonRef },
+    { dependencies: [resolvedTheme, mounted], scope: buttonRef },
   );
 
   if (!mounted) {
@@ -48,8 +49,6 @@ const ThemeSwitch = () => {
       <div className="size-10.5 animate-pulse rounded-2xl bg-zinc-200 dark:bg-zinc-800" />
     );
   }
-
-  const isDark = theme === "dark";
 
   return (
     <button

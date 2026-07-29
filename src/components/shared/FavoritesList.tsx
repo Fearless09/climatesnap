@@ -88,7 +88,7 @@ const FavoriteItem = ({ item }: { item: GeocodingResult }) => {
   }, [locationData]);
 
   const onSelect = useCallback(async () => {
-    if (!favWeather) return;
+    if (!favWeather || isActive) return;
 
     weatherDispacter({
       type: "set-weather",
@@ -116,13 +116,14 @@ const FavoriteItem = ({ item }: { item: GeocodingResult }) => {
         payload: data,
       });
     } catch (error) {
+      console.error(error);
     } finally {
       weatherDispacter({
         type: "set-loading",
         payload: { forecast: false },
       });
     }
-  }, [favWeather]);
+  }, [favWeather, isActive]);
 
   useEffect(() => {
     async function init() {

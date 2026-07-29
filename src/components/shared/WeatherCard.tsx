@@ -178,7 +178,7 @@ export const WeatherCard: React.FC = () => {
       {/* Main Glass Content Container */}
       <section
         ref={cardContentRef}
-        className="relative z-10 flex h-full flex-col justify-between px-5 py-6 text-zinc-800 md:p-8 dark:text-zinc-100"
+        className="relative z-10 flex h-full flex-col justify-between px-4 py-6 text-zinc-800 md:p-8 dark:text-zinc-100"
       >
         {/* Top Header Row */}
         <main className="flex items-center justify-between">
@@ -269,11 +269,11 @@ export const WeatherCard: React.FC = () => {
         </main>
 
         {/* Detailed Grid Stats */}
-        <main className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <main className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="transition-300 flex items-center gap-3.5 rounded-2xl border border-zinc-200 bg-white/50 p-3.5 backdrop-blur-md hover:scale-103 dark:border-zinc-800 dark:bg-zinc-900/50"
+              className="transition-300 flex items-center gap-2.5 rounded-2xl border border-zinc-200 bg-white/50 p-3.5 backdrop-blur-md hover:scale-103 sm:gap-3.5 dark:border-zinc-800 dark:bg-zinc-900/50"
             >
               <span
                 className={cn(

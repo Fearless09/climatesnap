@@ -106,7 +106,6 @@ export default function RootLayout({
           defaultTheme="system"
           attribute={"data-theme"}
           disableTransitionOnChange
-          storageKey="climate-snap-theme"
         >
           <WeatherProvider>
             <section className="transition-300 flex min-h-dvh flex-col bg-zinc-50 font-sans text-zinc-800 antialiased dark:bg-black dark:text-zinc-100">

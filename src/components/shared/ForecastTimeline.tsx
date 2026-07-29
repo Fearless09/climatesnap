@@ -97,7 +97,7 @@ const ForecastItem = ({ item }: { item: ForecastEntry }) => {
   }, [weatherData]);
 
   const onSelect = useCallback(() => {
-    if (!weatherData) return;
+    if (!weatherData || currentItem) return;
 
     weatherDispacter({
       type: "set-weather",
@@ -113,7 +113,7 @@ const ForecastItem = ({ item }: { item: ForecastEntry }) => {
         snow: item.snow,
       },
     });
-  }, [weatherData]);
+  }, [weatherData, currentItem]);
 
   return (
     <button

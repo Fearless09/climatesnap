@@ -72,7 +72,7 @@ export const SearchLocation: React.FC = () => {
   };
 
   return (
-    <section ref={searchContainerRef} className="relative z-50 w-full max-w-lg">
+    <section ref={searchContainerRef} className="relative z-10 w-full max-w-lg">
       <main className="group relative flex w-full items-center">
         <span className="transition-300 absolute left-3.75 z-1 text-zinc-400 group-focus-within:text-blue-500 [&_svg]:size-4.5">
           {loading ? <Loader2 className="animate-spin stroke-2" /> : <Search />}
