@@ -1,4 +1,1 @@
-export const defaultCoordinate: LatLng = {
-  lat: 9.0643305,
-  lng: 7.4892974,
-};
+export const defaultCoordinate: LatLng = { lat: 6.5269033, lng: 3.5774005 };
